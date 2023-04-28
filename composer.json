@@ -1,0 +1,14 @@
+{
+  "autoload": {
+    "psr-4": {
+      "LOTR\\": ""
+    }
+  },
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
