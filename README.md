@@ -9,9 +9,10 @@ You will need to generate your own unique Access token, which you can obtain fro
 
 ## Installation
 You can install the LOTR SDK using Composer. 
+
 First, make sure you have Composer installed on your system. 
 
-Then, run `composer install` to install the SDK.
+Then, run `composer init` and `composer require themanwiththegoldenhand/lotr-php-sdk`.
 
 Alternatively, you can download the `LOTR.php` file and include it in your project manually.
 
@@ -19,16 +20,15 @@ Alternatively, you can download the `LOTR.php` file and include it in your proje
 To use the LOTR SDK in your project, you first need to create a new instance of the LOTR\LOTR class:
 
 ```php
+use LOTR\LOTR;
 require_once '/path/to/vendor/autoload.php';
-```
-
-```php
 $lotr = new LOTR(YOUR_APIKEY);
 ```
 
-###### Make sure to replace `YOUR_APIKEY` with the Access token, which you can obtain from https://the-one-api.dev/sign-up
+###### The usage examples in this README assume you have installed the package via Composer.
+###### Make sure to replace `YOUR_APIKEY` with the Access token, which you can obtain from https://the-one-api.dev/sign-up.
 
-You can then use the client to make requests to the LOTR API. For example, to get a list of all characters:
+You can then use the client to make requests to the LOTR API. For example, to get a list of all movies:
 
 ```php
 $response = $lotr->getMovies();
@@ -138,16 +138,16 @@ $response = $lotr->getMovies();
 ```
 
 ### Building the filtering argument
-The `setFilters` function accepts a two-dimensional array. Each one of which must contain value for `key` and `filter_type`. 
+The `setFilters` function accepts a two-dimensional array. Each one of which must contain a value for `key` and `filter_type`. 
 
 All filter types other than `exists` and `not_exist`, must also have a value for `value`.
 
 The only accepted values for `filter_type` are `match`, `not_match`, `include`, `exclude`, `exists`, `not_exist`, `regex_match`, `regex_not_match`, `>`, `<`, `>=` and `<=`. 
 
-If the `filter_type` is one of `>`, `<`, `>=` or `<=`, then the value of `value` must be numeric, otherwise a non-empty string.
+If the `filter_type` is one of `>`, `<`, `>=` or `<=`, then the value of `value` must be numeric. For all other `filter_type` values, the value for `value` must be a non-empty string.
 
 ## Disclaimers
-This SDK is NOT a complete implementation, with an emphasis being placed on the `/movie` and `/quote` services. 
+This SDK is NOT a complete implementation. A greater emphasis has being put into the `/movie` and `/quote` services. 
 
 ## Testing
 To run the unit tests for the LOTR SDK, first make sure you have PHPUnit installed and have added your Access token in the test file (`tests/Test.php:8`). Then, run the following command from the root directory of the project:
@@ -155,7 +155,8 @@ To run the unit tests for the LOTR SDK, first make sure you have PHPUnit install
 ```bash
 vendor/bin/phpunit
 ```
-This will run all the tests in the tests directory.
+This will run all the tests in the `tests` directory.
+###### Running all the tests in the project assumes you have cloned the repository.
 
 ## Contributing
 If you find any bugs or have any feature requests, please open an issue on the GitHub repository. Pull requests are also welcome!
