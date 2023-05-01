@@ -153,7 +153,7 @@ This SDK is NOT a complete implementation. A greater emphasis has being put into
 To run the unit tests for the LOTR SDK, first make sure you have PHPUnit installed and have added your Access token in the test file (`tests/Test.php:8`). Then, run the following command from the root directory of the project:
 
 ```bash
-vendor/bin/phpunit
+vendor/bin/phpunit tests/
 ```
 This will run all the tests in the `tests` directory.
 ###### Running all the tests in the project assumes you have cloned the repository.
